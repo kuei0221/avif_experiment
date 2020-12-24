@@ -1,8 +1,8 @@
 <h1>Products#new</h1>
 
 <%= form_for @product, url: products_path, html: { multipart: true } do |form| %>
-  <%= form.label :photo_resolution %>
-  <%= form.text_field :photo_resolution %>
+  <%= form.label :photo_image_size %>
+  <%= form.text_field :photo_image_size %>
   <%= form.label :photo %>
   <%= form.file_field :photo %>
   <%= form.submit %>

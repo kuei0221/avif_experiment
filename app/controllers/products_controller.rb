@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.all.order(:photo_file_name)
   end
 
   def new
@@ -20,6 +20,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:photo, :photo_resolution)
+    params.require(:product).permit(:photo, :photo_image_size)
   end
 end

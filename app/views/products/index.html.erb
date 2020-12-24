@@ -2,10 +2,20 @@
 
 <%= link_to "New Product", new_product_path %>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= link_to "#{product.photo_resolution}: #{product.photo_file_name}" ,product_path(product) %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Image Size</th>
+    <th>Process Time(sec)</th>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.photo_file_name, product_path(product) %></td>
+        <td><%= product.photo_image_size %></td>
+        <td><%= product.process_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
