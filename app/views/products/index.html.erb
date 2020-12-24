@@ -1,0 +1,11 @@
+<h3>Products#index</h3>
+
+<%= link_to "New Product", new_product_path %>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to "#{product.photo_resolution}: #{product.photo_file_name}" ,product_path(product) %>
+    </li>
+  <% end %>
+</ul>

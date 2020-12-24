@@ -1,0 +1,26 @@
+<h3>Product#show</h3>
+
+<div>
+  <%= "Photo Name: #{@product.photo_file_name}" %>
+</div>
+<div>
+  <%= "Resolution: #{@product.photo_resolution}" %>
+</div>
+<div>
+  <%= "Encode Process Time: #{@product.process_time} sec" %>
+</div>
+
+
+<div>
+  <p>Orignal</p>
+  <%= "Size: #{File.size @product.photo.path}" %>
+  <%= image_tag @product.photo.url %>
+</div>
+
+<div>
+  <p>AVIF</p>
+  <%= "Size: #{File.size @product.photo.path(:avif)}" %>
+  <%= image_tag @product.photo.url(:avif) %>
+</div>
+
+<%= link_to 'Product Index', products_path %>
