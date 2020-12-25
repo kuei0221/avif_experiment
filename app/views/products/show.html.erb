@@ -10,17 +10,20 @@
   <%= "Encode Process Time: #{@product.process_time} sec" %>
 </div>
 
-
-<div>
-  <p>Orignal</p>
-  <%= "Size: #{File.size @product.photo.path}" %>
-  <%= image_tag @product.photo.url %>
-</div>
-
-<div>
-  <p>AVIF</p>
-  <%= "Size: #{File.size @product.photo.path(:avif)}" %>
-  <%= image_tag @product.photo.url(:avif) %>
-</div>
-
-<%= link_to 'Product Index', products_path %>
+<table>
+  <thead>
+    <th>Original</th>
+    <th>AVIF</th>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td><%= "Size: #{File.size @product.photo.path}" %></td>
+      <td><%= "Size: #{File.size @product.photo.path(:avif)}" %></td>
+    </tr>
+    <tr>
+      <td><%= image_tag @product.photo.url %></td>
+      <td><%= image_tag @product.photo.url(:avif) %></td>
+    </tr>
+  </tbody>
+</table>
