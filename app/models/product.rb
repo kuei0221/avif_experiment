@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  has_attached_file :photo, styles: { avif: [:avif] }, processors: [:default, :avif], default_url: "/images/:style/missing.png"
+  # if image resize is need, add geometry: "sizexsize>" ( i.e 100x100> ) in styles
+  has_attached_file :photo, styles: { avif: { format: :avif } }, processors: [:default, :avif], default_url: "/images/:style/missing.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   before_save :floor_process_time
