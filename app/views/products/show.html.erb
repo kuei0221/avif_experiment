@@ -1,6 +1,6 @@
 <h3>Product#show</h3>
 
-<%= link_to 'Back to Index', products_path %>
+<%= link_to 'Back to Index', products_path, class: 'btn btn-sm btn-secondary my-3' %>
 
 <div>
   <%= "Photo Name: #{@product.photo_file_name}" %>
@@ -12,18 +12,21 @@
   <%= "Encode Process Time: #{@product.process_time} sec" %>
 </div>
 
-<table>
+<table class='table my-3'>
   <thead>
+    <th>#</th>
     <th>Original</th>
     <th>AVIF</th>
   </thead>
   
   <tbody>
     <tr>
-      <td><%= "Size: #{File.size @product.photo.path}" %></td>
-      <td><%= "Size: #{File.size @product.photo.path(:avif)}" %></td>
+      <td>Size</td>
+      <td><%= File.size @product.photo.path%></td>
+      <td><%= File.size @product.photo.path(:avif)%></td>
     </tr>
-    <tr>
+    <tr> 
+      <td>Image</td>
       <td><%= image_tag @product.photo.url %></td>
       <td><%= image_tag @product.photo.url(:avif) %></td>
     </tr>
